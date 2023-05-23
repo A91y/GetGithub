@@ -19,13 +19,10 @@ def home(request, username):
     
 def index(request):
     if request.method == "GET":
-        # searchinput = request.GET.get('search-input', "");
         try:
             searchinput = request.GET['user']
-            print("Normal")
             return redirect(f"/{searchinput}")
         except MultiValueDictKeyError:
-            print('Error')
             return render(request, "index.html")
 
         
